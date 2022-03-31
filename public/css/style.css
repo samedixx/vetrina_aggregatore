@@ -1,0 +1,204 @@
+/* MAIN HEADER CSS */
+
+/* Temp Style */
+.mainContent {
+    min-height: 100%;
+}
+
+/* Header Style */
+.navbar-expand-lg .navbar-collapse {
+    justify-content: center;
+    align-items: center;
+}
+#navbarSupportedContent form.row {
+    height: 40px!important;
+    display: flex;
+    flex-direction: row;
+}
+#navbarSupportedContent form.row .col-auto {
+    height: 40px!important;
+}
+.navbar-brand img {
+    width: 120px;
+    max-width: 120px;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #c9c9c9;
+    font-weight: 500;
+}
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link{
+    color: #fff;
+    font-weight: 700;
+}
+.logUserd{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 5px;
+}
+
+/* General Style */
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+    max-width: 1575px;
+}
+
+/* Footer Style */
+.mainFooter {
+    min-height: 73px;
+    background: #1c84c6;
+    position: static;
+    min-width: 100%;
+    color: #fff;
+    max-height: 73px;
+    max-width: 100%;
+    bottom: 0px;
+}
+.navbar_custom {
+    background:#1c84c6;
+}
+
+
+/* SIDEBAR CSS */
+
+.main_sidebar i {
+    font-size:12px;
+    align-items: center;
+}
+.main_sidebar a {
+    text-align: center;
+}
+
+
+/* BACKEND CSS */
+
+.registerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 100%;
+}
+.registerBox .card{
+    height: 90%;
+}
+.registerBox .card-body h5 {
+    text-align: center;
+}
+.registerBox form .col-12{
+    margin-top: 10px;
+}
+.registerBox form .col-12:last-child {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+}   
+.registerGameBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 100%;
+}
+.registerGameBox .card{
+    height: 90%;
+}
+.registerGameBox .card-body h5 {
+    text-align: center;
+}
+.registerGameBox form .col-12{
+    margin-top: 10px;
+}
+.registerGameBox form .col-12:last-child {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+}   
+
+
+/* INDEX CSS */
+
+.login_container {
+    height: 100vh;
+    background: #f3f3f4;
+}
+.login_container form {
+    width: 503px;
+    max-width: 503px;
+    min-width: 503px;
+}
+.header_login {
+    display: flex;
+    height: 77px;
+    background: #1c84c6;
+    align-items: center;
+    padding-left: 10px;
+    border-radius: 3px 3px 0 0;
+}
+.inputBox {
+    display:flex;
+    flex-direction: column;
+}
+.siteLogo {
+    width: 165px;
+    height: 50px;
+}
+.input_login {
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: #1c84c6;
+    display: block;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+    font-size: 14px;
+}
+.input_login::placeholder, .inputBox label {color:#1c84c6; font-weight: 400;}
+.inputBox label {
+    font-size:12px;
+}
+.input_container {
+    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%)
+}
+p.mt-5.mb-3.text-muted.justify-content-center.copyrigth {
+    font-size: 11px;
+    justify-content: center;
+    width: 100%;
+}
+.login_button {
+    background: #1c84c6;
+    display: flex;
+    width: 97%!important;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 12px;
+    margin-top: 35px!important;
+}
+.main_container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.mainContent {
+    width: 100%!important;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.gameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #1c84c6;
+    border-radius: 10px;
+}

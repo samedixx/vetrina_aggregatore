@@ -1,0 +1,87 @@
+<%- include('layout/header.ejs') %>
+    <div class="mainbackend">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Admin Panel</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="registerBox">
+                        <div class="card" style="width: 18rem;">
+                            <!-- <img src="..." class="card-img-top" alt="..."> -->
+                            <div class="card-body">
+                                <h5 class="card-title">New User</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="/register" method="post" class="row">
+                                    <div class="col-12">
+                                        <label for="staticEmail2" class="visually-hidden">Email</label>
+                                        <input type="text" class="form-control" id="staticEmail2" name="email" placeholder="email@example.com">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="staticUsername" class="visually-hidden">Username</label>
+                                        <input type="text" class="form-control" id="staticUsername" name="username" placeholder="Jhondoe">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputPassword2" class="visually-hidden">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword2" name="password" placeholder="Password">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputPassword3" class="visually-hidden">Confirm Password</label>
+                                        <input type="password" class="form-control" id="inputPassword3" name="confpassword" placeholder="Confirm Password">
+                                    </div>
+                                    <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mb-3">Register user</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="registerGameBox">
+                        <div class="card" style="width: 18rem;">
+                            <!-- <img src="..." class="card-img-top" alt="..."> -->
+                            <div class="card-body">
+                                <h5 class="card-title">New Game</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="/addgame" method="post" class="row">
+                                    <div class="col-12">
+                                        <label for="staticgame_name" class="visually-hidden">Game Name</label>
+                                        <input type="text" class="form-control" id="staticgame_name" name="game_name" placeholder="Game Name">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="staticpv_code" class="visually-hidden">Pv Code</label>
+                                        <input type="text" class="form-control" id="staticpv_code" name="pv_code" placeholder="Pv Code">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputcode_to_open_game" class="visually-hidden">Code To Open Game</label>
+                                        <input type="text" class="form-control" id="inputcode_to_open_game" name="code_to_open_game" placeholder="Code To Open Game">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputgame_group" class="visually-hidden">Game Group</label>
+                                        <input type="text" class="form-control" id="inputgame_group" name="game_group" placeholder="Game Group">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="staticis_mobile" class="visually-hidden">Is Mobile</label>
+                                        <input type="text" class="form-control" id="staticis_mobile" name="is_mobile" placeholder="Is Mobile">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="staticimg_path" class="visually-hidden">Img Path</label>
+                                        <input type="text" class="form-control" id="staticimg_path" name="img_path" placeholder="Img Path">
+                                    </div>
+                                    <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mb-3">Add new game</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('layout/footer.ejs') %>

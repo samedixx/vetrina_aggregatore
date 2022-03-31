@@ -1,0 +1,10 @@
+<%- include('layout/header.ejs') %>
+  <div class="mainProfile">
+    <%if (user) { %>
+        <span>Profile of <%= user.username %></span>
+        <% if(user.usertype === "admin"){ %>
+            <button class="btn btn-outline-primary"><a href="/backend">Admin Panel</a></button>
+        <% } %>
+    <% } %>
+  </div>
+<%- include('layout/footer.ejs') %>
