@@ -4,13 +4,22 @@ module.exports = (app, passport) => {
 	const Games = require('./models/games');
 
 
+	const fs = require('fs');
+
+
+
 	//Routes without session
 	app.get('/', (req, res, next) => {
+		let rawdata = fs.readFileSync('./public/game_list.json');
+		let gamelist = JSON.parse(rawdata);
+
 		res.render('index', { 
 			title: "Home",
 			errorMessage: req.flash('errorMessage'),
 			successMessage: req.flash('successMessage'),
-			user: req.user
+			
+			user: req.user,
+			gamelist : gamelist
 		});
 	});
 

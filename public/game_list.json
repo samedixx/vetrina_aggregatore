@@ -1,0 +1,12 @@
+{
+    "games" : [
+        {
+        "name": "Hot Seven",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/hot7icon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo" : "https://free-slots.games/games/amatic/hot7/demo"
+        }
+    ]
+}
