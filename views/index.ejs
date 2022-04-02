@@ -1,6 +1,9 @@
 <%- include('layout/header.ejs') %>
+ <!-- Jquery -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <%if (!user) { %>
+    
   <div class="login_container login_container d-flex w-100 justify-content-center align-items-center p-5">
     <main class="form-signin">
       <form class="bg-white" action="/login" method="post">
@@ -53,5 +56,8 @@
         </div>
       </div>
     </div>
+
     <%- include('layout/footer.ejs') %>
-  <% } %>
+    <% } %>
+
+ 
