@@ -31,6 +31,246 @@
         "mobile": true,
         "game_provider": "amatic",
         "demo": "https://free-slots.games/games/amatic/hotstar/demo"
+        },
+        {
+        "name": "Book Of Fortune",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/bookoffortuneicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/bookoffortune/demo"
+        },
+        {
+        "name": "Book of Aztec",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/bookofaztecicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/bookofaztec/demo"
+        },
+        {
+        "name": "Admiral",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/admiralicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/admiralnelson/demo"
+        },
+        {
+        "name": "Hot 27",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/twentysevenicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://cdn02.cdn.amatic.com/gmsl/amanet/game.html?game=twentyseven&hash=&wallet=w13&currency=USD&config=14720&isFreeplay=true&language=en&exit=&type=desktop"
+        },
+        {
+        "name": "Bells On Fire",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/bellsonfireicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/bells_on_fire/demo"
+        },
+        {
+        "name": "Wild Diamonds",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/wilddiamondsicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/wilddiamonds/demo"
+        },
+        {
+        "name": "Magic Idol",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/magicidolicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/magicidol/demo"
+        },
+        {
+        "name": "Merry Fruits",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/merryfruitsicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/merry_fruits/demo"
+        },
+        {
+        "name": "Hot Scatter",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/hotscattericon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/hotscatter/demo"
+        },
+        {
+        "name": "Hot Neon",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/hotneonicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/hotneon/demo"
+        },
+        {
+        "name": "Lovely Lady",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/ladyluckicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/lovelylady/demo"
+        },
+        {
+        "name": "Lucky Coin",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/luckycoinicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/luckycoins/demo"
+        },
+        {
+        "name": "Blue Dolphin",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/bluedolphinicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/bluedolphin/demo"
+        },
+        {
+        "name": "Wild Stars",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/wildstarsicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://cdn02.cdn.amatic.com/gmsl/mphome/amarent/wildstars.html?hash=freeplay&curr=USD&lang=en&uselang=en&exit=&config=14720"
+        },
+        {
+        "name": "Fortunas Fruits",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/fortunasfruitsicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/fortunas_fruits/demo"
+        },
+        {
+        "name": "Casanova",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/casanovaicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/casanova/demo"
+        },
+        {
+        "name": "Hot Diamonds",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/hotdiamondsicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/hotdiamonds/demo"
+        },
+        {
+        "name": "Party Time",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/partytimeicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/partytime/demo"
+        },
+        {
+        "name": "All Ways Fruits",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/allwaysfruitsicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://cdn02.cdn.amatic.com/gmsl/amanet/game.html?game=allwaysfruits&hash=cac_freeplay&wallet=w1&currency=EUR&config=1331&isFreeplay=true&language=en"
+        },
+        {
+        "name": "Cool Diamonds II",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/cooldiamondsiiicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/cooldiamonds2/demo"
+        },
+        {
+        "name": "Wolf Moon",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/wolfmoonicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/wolfmoon/demo"
+        },
+        {
+        "name": "Wild Shark",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/wildsharkicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/wildshark/demo"
+        },
+        {
+        "name": "Dragons Pearl",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/dragonspearlicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/dragonspearl/demo"
+        },
+        {
+        "name": "Wild Respin",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/wildrespinicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/wild_respin/demo"
+        },
+        {
+        "name": "Eye of Ra",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/eyeofraicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/eyeofra/demo"
+        },
+        {
+        "name": "Lady Joker",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/ladyjokericon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/ladyjoker/demo"
+        },
+        {
+        "name": "Magic Owl",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/magicowlicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/magicowl/demo"
+        },
+        {
+        "name": "Arising Phoenix",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/arisingphoenixicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/phoenix/demo"
+        },
+        {
+        "name": "Billyonaire",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/billyonaireicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/billyonaire/demo"
+        },
+        {
+        "name": "Diamond Cats",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/diamondcatsicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://cdn02.cdn.amatic.com/gmsl/amanet/game.html?game=diamondcats&hash=cac_freeplay&wallet=w1&currency=EUR&config=1331&isFreeplay=true&language=en&exit=https://www.casinocasino.com:443/exit.php"
         }
 
     ]
