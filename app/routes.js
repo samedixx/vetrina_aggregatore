@@ -6,6 +6,7 @@ module.exports = (app, passport) => {
 
 	const fs = require('fs');
 
+
 	//Routes without session
 	app.get('/', (req, res, next) => {
 		let rawdata = fs.readFileSync('./public/game_list.json');
@@ -32,14 +33,20 @@ module.exports = (app, passport) => {
 	});
 
 	app.get('/backend', isAdmin, async (req, res, next) => {
-		var totalGames = await Games.count({});
+
+		let rawdata = fs.readFileSync('./public/game_list.json');
+		let gamelist = JSON.parse(rawdata);
+		var allUsers = await User.find({});
+		console.log(allUsers);
 		res.render('backend.ejs', { 
 			title: "Admin Panel",
 			errorMessage: req.flash('errorMessage'),
 			successMessage: req.flash('successMessage'),
 			user: req.user,
-			totalgames: totalGames
+			totalgames: gamelist,
+			allUsers: allUsers
 		});
+
 	});
 
 	app.get('/logout', isAuthenticated, (req, res) =>{
@@ -63,65 +70,46 @@ module.exports = (app, passport) => {
 	}));
 
 	app.post('/addgame', isAdmin, (req, res) => {
-		var isError = 0;
-		if(req.body.game_name.length >= 2){
-			if(req.body.image.length >= 2){
-				if(req.body.provider.length >= 2){
-					if(req.body.demo.length >= 2){
-						Games.findOne({'name': req.body.name}, async function (err, game){
-							if(err){
-								console.log(err);
-								req.flash('errorMessage', 'Ops something went wrong: ' + err);
-								res.redirect("/backend");
-							} 
-							if(game){
-								req.flash('errorMessage', 'The game it\'s already added to the list');
-								res.redirect("/backend");
-							}else{
-								var newGame = new Games();
-								newGame.name = req.body.name;
-								newGame.image = req.body.image;
-								newGame.provider = req.body.provider;
-								newGame.demo = req.body.demo;
-						
-								console.log(newGame);
 
-								res.flash(newGame);
+		var currentSearchResult = 'example';
 
+		var name = req.body.game_name;
+		var image = req.body.image;
+		var provider = req.body.provider; 
+		var demo = req.body.demo;
 
+	
 
+		fs.readFile('./public/game_list.json', function (err, data) {
 
-								
-								
-								var savedGame = await newGame.save();
-								if(savedGame){
-									req.flash('successMessage', 'Game successfully added');
-									res.redirect('/backend');
-								}else{
-									req.flash('errorMessage', 'Something went wrong, try again later');
-									console.log("Erro on save");
-									res.redirect("/");
-								}
-							}
-						});
-					}else{
-						isError = 1;
-					}
-				}else{
-					isError = 1;
+			var json = JSON.parse(data);
+			var isDouble = 0;
+			
+			for(var i = 0; i < json.games.length;i++){
+				if(json.games[i].name === name){
+					isDouble = 1;
 				}
-			}else{
-				isError = 1;
-			}
-		}else{
-			isError = 1;
-		}
+			};
+			
+			if(isDouble == 0) {		
+				json.games.push({
+					"name" : name,
+					"image" : image,
+					"provider" : provider.toLowerCase(),
+					"demo" : demo
+				});
+			}else {
 
-		if(isError === 1){
-			console.log("Last Error");
-			req.flash('errorMessage', 'Make sure you completed all the fields');
-			res.redirect("/backend");
-		}
+			}
+
+			fs.writeFile('./public/game_list.json', JSON.stringify(json), function(err, result){
+				if(err){
+					console.log(err)
+				}
+				console.log('writeFile ==> ', result);
+			});
+
+		});
 	});
 
 

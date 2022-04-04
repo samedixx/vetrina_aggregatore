@@ -71,6 +71,8 @@
       var array_provider = []; 
       var img_provider_path = 'https://area.test.media.termsandcondition.xyz/providers/';
       var game_list = <%-JSON.stringify(gamelist)%>;
+
+      console.debug('game list ->', game_list);
       
       var providerIsOpen = false;
       
@@ -145,7 +147,7 @@
               //console.log('after sort --> ', array_all_games);
               for(let i = 0; i < array_all_games.length; i++) {
                   
-                  if(array_all_games[i].game_provider === clickedProvider) {
+                  if(array_all_games[i].provider === clickedProvider) {
                       if(array_all_games.indexOf(i.name) === -1) {
                           array_filtered_providers.push(array_all_games[i]);
                       }
@@ -156,7 +158,7 @@
               // Build Games
               $.each(array_filtered_providers, (i, v) => {
                 console.debug(v);
-                  var filteredProvider = '<li class="part-item game" provider="'+ v.game_provider +'" game="'+ v.name.toLowerCase() +'"><a href="'+v.demo+'" onclick="window.open(this.href,\'targetWindow\', `toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes,width=700, height=400`); return false;"><img src="'+ v.image + '" alt="'+ v.name +'" /><span class="partner-title">'+ v.name +'</span></li>'
+                  var filteredProvider = '<li class="part-item game" provider="'+ v.provider +'" game="'+ v.name.toLowerCase() +'"><a href="'+v.demo+'" onclick="window.open(this.href,\'targetWindow\', `toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes,width=700, height=400`); return false;"><img src="'+ v.image + '" alt="'+ v.name +'" /><span class="partner-title">'+ v.name +'</span></li>'
                   $('.filtered_partners').append(filteredProvider);
               })
       
@@ -177,8 +179,8 @@
           $.each(game_list.games, function(i,v){
               console.debug(game_list)
               // if provider is not inside array_provider push it in
-              if (array_provider.indexOf(v.game_provider) === -1){
-                  array_provider.push(v.game_provider);
+              if (array_provider.indexOf(v.provider) === -1){
+                  array_provider.push(v.provider);
               }
       
               // push all games
