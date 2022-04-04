@@ -31,8 +31,8 @@ app.use(passport.session());
 
 //Local Session
 app.use( async (req, res, next) =>{
-	app.locals.errorMessage = req.flash('errorMessage');
-	app.locals.successMessage = req.flash('successMessage');
+	res.locals.errorMessage = req.flash('errorMessage');
+	res.locals.successMessage = req.flash('successMessage');
 	app.locals.user = req.user;
 	next();
 });

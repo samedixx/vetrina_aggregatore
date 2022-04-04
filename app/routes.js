@@ -5,6 +5,7 @@ module.exports = (app, passport) => {
 
 
 	const fs = require('fs');
+	
 
 
 	//Routes without session
@@ -69,28 +70,20 @@ module.exports = (app, passport) => {
 		failureFlash: true
 	}));
 
-	app.post('/addgame', isAdmin, (req, res) => {
-
-		var currentSearchResult = 'example';
-
+	app.post('/addgame', isAdmin, async (req, res) => {
 		var name = req.body.game_name;
 		var image = req.body.image;
 		var provider = req.body.provider; 
 		var demo = req.body.demo;
 
-	
-
-		fs.readFile('./public/game_list.json', function (err, data) {
-
+		await fs.readFile('./public/game_list.json', async function (err, data) {
 			var json = JSON.parse(data);
 			var isDouble = 0;
-			
 			for(var i = 0; i < json.games.length;i++){
 				if(json.games[i].name === name){
 					isDouble = 1;
 				}
 			};
-			
 			if(isDouble == 0) {		
 				json.games.push({
 					"name" : name,
@@ -98,20 +91,20 @@ module.exports = (app, passport) => {
 					"provider" : provider.toLowerCase(),
 					"demo" : demo
 				});
-			}else {
-
+				await fs.writeFile('./public/game_list.json', JSON.stringify(json), function(err, result){
+					if(err){
+						console.log(err)
+					}
+					console.log('writeFile ==> ', result);
+					if(result){
+						console.log('porco dios')
+					}
+					res.message('errorMessage', 'Porco dio')
+					res.redirect('/backend');
+				});
 			}
-
-			fs.writeFile('./public/game_list.json', JSON.stringify(json), function(err, result){
-				if(err){
-					console.log(err)
-				}
-				console.log('writeFile ==> ', result);
-			});
-
 		});
 	});
-
 
 	//Session checks
 	function isAuthenticated(req, res, next){

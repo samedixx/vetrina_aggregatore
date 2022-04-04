@@ -1,6 +1,11 @@
 <%- include('layout/header.ejs') %>
 
 <style>
+    .section_services {
+        display: flex;
+        grid-gap: 27px;
+        padding: 10px;
+    }
     .mainbackend {
         height: 100vh;
     }
@@ -35,6 +40,42 @@
     h5.card-title.custom_title_ {
         color: #5eb5ec;
     }
+
+    .Provider_container { 
+        background-color: white; 
+        padding: 14px; 
+        border-radius: 5px; 
+    } 
+
+    .Provider_container > header { 
+        background-color: #13689f; 
+        text-align: center; 
+        padding: 5px; 
+        margin-bottom: 20px; 
+    } 
+
+    .Provider_container h4 { 
+        color: white; 
+    } 
+
+    .infoandsearch { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+    } 
+
+    .input-group.input-group-sm.mb-3 { 
+        width: 40%; 
+    } 
+
+    .mainBackend th, .mainBackend td { 
+        color: #1c84c6; 
+        text-align: center; 
+    } 
+
+
+
+
 </style>
     <div class="mainbackend">
         <div class="p-3">
@@ -52,22 +93,22 @@
                                 <form action="/register" method="post" class="row">
                                     <div class="col-12 custom_input">
                                         <label for="staticEmail2" class="visually-hidden">Email</label>
-                                        <input type="text" class="form-control" id="staticEmail2" name="email" placeholder="email@example.com">
+                                        <input type="text" class="form-control" id="staticEmail2" name="email" placeholder="email@example.com" required>
                                         <i class="fa-regular fa-envelope"></i>
                                     </div>
                                     <div class="col-12 custom_input">
                                         <label for="staticUsername" class="visually-hidden">Username</label>
-                                        <input type="text" class="form-control" id="staticUsername" name="username" placeholder="Jhondoe">
+                                        <input type="text" class="form-control" id="staticUsername" name="username" placeholder="Jhondoe" required>
                                         <i class="fa-regular fa-user-alien"></i>
                                     </div>
                                     <div class="col-12 custom_input">
                                         <label for="inputPassword2" class="visually-hidden">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword2" name="password" placeholder="Password">
+                                        <input type="password" class="form-control" id="inputPassword2" name="password" placeholder="Password" required>
                                         <i class="fa-regular fa-key"></i>
                                     </div>
                                     <div class="col-12 custom_input">
                                         <label for="inputPassword3" class="visually-hidden">Confirm Password</label>
-                                        <input type="password" class="form-control" id="inputPassword3" name="confpassword" placeholder="Confirm Password">
+                                        <input type="password" class="form-control" id="inputPassword3" name="confpassword" placeholder="Confirm Password" required>
                                         <i class="fa-regular fa-lock"></i>
                                     </div>
                                     <div class="col-12">
@@ -89,22 +130,22 @@
                                 <form action="/addgame" method="post" class="row">
                                     <div class="col-12 custom_input">
                                         <label for="staticgame_name" class="visually-hidden">Game Name</label>
-                                        <input type="text" class="form-control" id="staticgame_name" name="game_name" placeholder="Game Name">
+                                        <input type="text" class="form-control" id="staticgame_name" name="game_name" placeholder="Game Name"  required>
                                         <i class="fa-regular fa-game-console-handheld"></i>
                                     </div>
                                     <div class="col-12 custom_input">
                                         <label for="staticpv_code" class="visually-hidden">Image Url</label>
-                                        <input type="text" class="form-control" id="staticimg_url" name="image" placeholder="Insert the game's image">
+                                        <input type="text" class="form-control" id="staticimg_url" name="image" placeholder="Insert the game's image" required>
                                         <i class="fa-regular fa-image"></i>
                                     </div>
                                     <div class="col-12 custom_input">
                                         <label for="inputcode_to_open_game" class="visually-hidden">Provider</label>
-                                        <input type="text" class="form-control" id="inputprovider" name="provider" placeholder="Provider">
+                                        <input type="text" class="form-control" id="inputprovider" name="provider" placeholder="Provider" required>
                                         <i class="fa-regular fa-handshake"></i>
                                     </div>
                                     <div class="col-12 custom_input">
                                         <label for="inputgame_group" class="visually-hidden">Demo link</label>
-                                        <input type="text" class="form-control" id="inputdemo_link" name="demo" placeholder="Demo link">
+                                        <input type="text" class="form-control" id="inputdemo_link" name="demo" placeholder="Demo link" required>
                                         <i class="fa-solid fa-desktop"></i>
                                     </div>
                                     <div class="col-12">
@@ -117,6 +158,143 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="section_services">
+            <div class="col-6">
+                <div class="Provider_container">
+                    <header>
+                        <h4 class="card-title custom_title_"> Providers</h4>
+                    </header>
+                    <div class="infoandsearch">
+                        <h5 class="card-title custom_title_">Numero totale di utenti:58 </h5>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                 <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                      </div>          
+                    </div>
+                    <table class="table-bordered">
+                         <thead>
+                            <tr>
+                                <th scope="col">Logo</th>
+                                <th scope="col">Provider</th>
+                                <th scope="col">N'b0 Giochi</th>
+                                <th scope="col">Elimina</th>
+                             </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="w-25">
+                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" class="img-fluid img-thumbnail" alt="Game">
+                        </td>
+                        <td>sheeps</td>
+                        <td>18</td>
+                        <td>
+                            <button type="button" class="btn btn-primary w-25">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                              </svg>
+                            </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>
+                            <button type="button" class="btn btn-primary w-25">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                          </svg>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>
+                            <button type="button" class="btn btn-primary w-25">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                          </svg>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="Provider_container">
+                    <header>
+                        <h4 class="card-title custom_title_"> Giochi</h4>
+                    </header>
+                    <div class="infoandsearch">
+                        <h5 class="card-title custom_title_">Numero totale di giochi:124 </h5>
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                             <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                </div>          
+                    
+                    <table class="table-bordered">
+                         <thead>
+                            <tr>
+                                <th scope="col">Logo</th>
+                                <th scope="col">Gioco</th>
+                                <th scope="col">Demo link</th>
+                                <th scope="col">Elimina</th>
+                             </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="w-25">
+                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" class="img-fluid img-thumbnail" alt="Game">
+                        </td>
+                        <td>sheeps</td>
+                        <td><button type="button" class="btn btn-link">Demo</button</td>
+                        <td>
+                            <button type="button" class="btn btn-primary w-25">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                              </svg>
+                            </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td><button type="button" class="btn btn-link">Demo</button></td>
+                        <td>
+                            <button type="button" class="btn btn-primary w-25">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                          </svg>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td><button type="button" class="btn btn-link">Demo</button</td>
+                        <td>
+                            <button type="button" class="btn btn-primary w-25">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                          </svg>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        
     </div>
 
     <script>
@@ -125,6 +303,11 @@
 
         var allUsers =  <%- JSON.stringify(allUsers)%>;
         console.log(allUsers);
+
+
+        // Build Table All Users
+        var users_table = ''
+
     </script>
 
 <%- include('layout/footer.ejs') %>
