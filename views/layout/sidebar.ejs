@@ -1,55 +1,35 @@
-<div class="main_sidebar d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem; height: 100%; transition:0.4s all ease-out;">
-    <div class="dropdown border-top sidebar_custom">
-        <a href="#" class="user_box d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle user_img" style="transition: 0.4s all ease-out;">
+<div class="main_sidebar sidebar_is_open d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem; height: 100%; transition:0.4s all ease-out;">
+    <div class=" border-top sidebar_custom">
+        <a href="#" class="user_box d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none">
+          <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle user_img user_img_is_big" style="transition: 0.4s all ease-out;">
         </a>
-        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-          <li><a class="dropdown-item" href="#">New project...</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
-        </ul>
+        
       </div>
    
    
     
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       
-      <li class="nav_item">
+      <li class="nav_item userSec">
         <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-          <span class="user_title hidden">
-            Welcome back, <span class="user_name"> <%= user.username %></span>
+          <span class="menu-item">
+            Welcome back,
+            <br>
+            <span class="user_name"> <%= user.username %></span>
           </span>
         </a>
     </li>
       <li class="nav_item">
         <a href="#" class="diamond nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
             <i class="fa fa-diamond" aria-hidden="true"></i>
-            Menu View
+            <span class="menu-item">Menu View</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+        <a href="/backend" class="nav-link py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
             <i class="fa fa-podcast" aria-hidden="true"></i>
+            <span class="menu-item">Backend</span>
         </a>
-      </li>
-      <li class="nav_item">
-        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
-            <i class="fa fa-bullseye" aria-hidden="true"></i>
-
-        </a>
-      </li>
-      <li class="nav_item">
-        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-        </a>
-      </li>
-      <li class="nav_item">
-        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
-            <i class="fa fa-upload" aria-hidden="true"></i>
-        </a>
-      </li>
     </ul>
   </div>
 
@@ -77,20 +57,19 @@
 
   <script>
 
-    var isOpen = false;
+    var isOpen = true;
     
     $(document).off('click', '.diamond');
     $(document).on('click', '.diamond', function() {
       if (!isOpen) {
         $('.main_sidebar').addClass('sidebar_is_open');
         $('.user_img').addClass('user_img_is_big');
-        $('.user_title').removeClass('hidden');
+        $('.menu-item').removeClass('hidden');
         isOpen = !isOpen;
       }else {
         $('.main_sidebar').removeClass('sidebar_is_open');
         $('.user_img').removeClass('user_img_is_big');
-     
-        $('.user_title').addClass('hidden');
+        $('.menu-item').addClass('hidden');
         isOpen = !isOpen;
       }
 

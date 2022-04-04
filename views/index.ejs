@@ -28,11 +28,17 @@
   </div>
   <% }else{ %>
     <div class="main_container">
+      
       <div class="sidebar_container">
         <%- include('layout/sidebar.ejs') %>
       </div>
 
       <div class="main_section d-flex">
+        <div class="headSection">
+          <h3 class="headTitle">Partners</h3>
+          
+        </div>
+
         <div class="second_nav hidden">
           <button  onclick="goBack();">Indietro</button>
           <div class="crumbs"></div>
@@ -57,6 +63,9 @@
 
     <script>
 
+
+      
+
       var array_all_games = [];
       var array_filtered_providers = [];
       var array_provider = []; 
@@ -68,6 +77,10 @@
       
       var array_sorted_filterd_games = array_filtered_providers.sort(function (a, b) { return a.length - b.length; });
       console.log(array_sorted_filterd_games, 'sort array');
+
+
+
+ 
       
       // function search game
       function searchGame() {
@@ -94,6 +107,9 @@
           $(document).off('click', '.partner-item');
           $(document).on('click', '.partner-item', function(e){
               providerIsOpen = true;
+              $('.headTitle').remove();
+              var partenersTitle = '<h3 class="headTitle">Games <i class="fa-thin fa-game-console-handheld"></i></h3>';
+              $('.headSection').append(partenersTitle);
               if(providerIsOpen === 'false'){$('.second_nav').addClass('hidden'); $('.crumbs').hide(1000);};
               var clickedProvider = e.currentTarget.innerText.toLowerCase();
               console.debug('clicked provider ==>', typeof(clickedProvider));
@@ -140,7 +156,7 @@
               // Build Games
               $.each(array_filtered_providers, (i, v) => {
                 console.debug(v);
-                  var filteredProvider = '<li class="part-item game" provider="'+ v.game_provider +'" game="'+ v.name.toLowerCase() +'"><a href="'+ v.demo +'" target="_blank"><img src="'+ v.image + '" alt="'+ v.name +'" /><span class="partner-title">'+ v.name +'</span></li>'
+                  var filteredProvider = '<li class="part-item game" provider="'+ v.game_provider +'" game="'+ v.name.toLowerCase() +'"><a href="'+v.demo+'" onclick="window.open(this.href,\'targetWindow\', `toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes,width=700, height=400`); return false;"><img src="'+ v.image + '" alt="'+ v.name +'" /><span class="partner-title">'+ v.name +'</span></li>'
                   $('.filtered_partners').append(filteredProvider);
               })
       
@@ -154,7 +170,7 @@
       
           });
       })
-      
+
           //$(game_list, function( data ) {
       
           // Push providers
@@ -193,7 +209,11 @@
           $('#prov').remove();
           // hide second nav
           $('.second_nav').addClass('hidden');
-      
+          $('.headTitle').remove();
+          var partenersTitle = '<h3 class="headTitle">Partners <i class="fa-thin fa-handshake-angle"></i></h3>';
+          $('.headSection').append(partenersTitle);
+          providerIsOpen = false;
+    
       }
           </script>
 

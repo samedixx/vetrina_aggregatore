@@ -74,6 +74,9 @@ li.part-item.game img {
 }
 .navbar_custom {
   background: #1c84c6;
+  position: sticky;
+  top: 0;
+  z-index: 9;
 }
 
 /* SIDEBAR CSS */
@@ -173,6 +176,7 @@ li.part-item.game img {
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   width: 100%;
   font-size: 14px;
+  outline: none;
 }
 .input_login::placeholder,
 .inputBox label {
@@ -285,20 +289,58 @@ span.partner-title {
   display: none;
 }
 
+.headSection {
+  display: flex;
+  margin-left: 10%;
+  background: white;
+  color: #2f99dc;
+  padding-left: 20px;
+  height: 50px;
+  align-items: center;
+  box-shadow: 5px 1px 22px -12px black;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.sidebar_container {
+  position: fixed;
+  border-radius: 0 0 10px 0;
+  overflow: hidden;
+}
+
 .second_nav {
   display: flex;
   padding: 10px;
   background: var(--darkligth);
   position: sticky;
   top: 0;
+  margin-left: 9%;
+}
+
+.headSection h3 {
+  font-size: 20px;
+  font-weight: 100;
 }
 
 .second_nav button {
   padding: 10px;
-  background: var(--black);
-  color: var(--white);
+  background: #1c84c6;
+  color: #fff;
   border: 0;
   border-radius: 3px;
+  margin-left: 20px;
+}
+
+a.nav-link.py-3.border-bottom {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+li.nav-item:hover,
+li.nav_item:hover {
+  background: #eee;
+  transition: 0.4s ease-out;
 }
 
 .crumbs {
@@ -322,6 +364,25 @@ span.partner-title {
 
 .main_section.d-flex {
   flex-direction: column;
+  width: 100%;
+}
+
+a.d-block.p-3.link-dark.text-decoration-none {
+  display: flex;
+  width: 100%;
+}
+
+span.user_name {
+  color: #1c84c6;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+li.nav_item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .main-container {
@@ -329,6 +390,7 @@ span.partner-title {
   background: #ddd;
   overflow: hidden;
   overflow-y: scroll;
+  margin-left: 9%;
 }
 
 span.providerCounter,

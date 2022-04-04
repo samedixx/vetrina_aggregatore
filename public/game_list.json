@@ -7,6 +7,31 @@
         "mobile": true,
         "game_provider": "amatic",
         "demo" : "https://free-slots.games/games/amatic/hot7/demo"
+        },
+        {
+        "name": "Hot Twenty",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/hottwentyicon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://cdn02.cdn.amatic.com/gmsl/mphome/amarent/hottwenty.html?hash=freeplay&curr=EUR&lang=en&uselang=en&config=1391"
+        },
+        {
+        "name": "Wild Seven",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/wild7icon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/wild_seven/demo"
+        },
+        {
+        "name": "Hot Star",
+        "image": "https://cdn.3gtraffic.com/img/games/amatic/hotstaricon.png",
+        "provider": "amatic",
+        "mobile": true,
+        "game_provider": "amatic",
+        "demo": "https://free-slots.games/games/amatic/hotstar/demo"
         }
+
     ]
 }

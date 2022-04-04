@@ -1,39 +1,76 @@
 <%- include('layout/header.ejs') %>
+
+<style>
+    .mainbackend {
+        height: 100vh;
+    }
+    input {
+        border: 1px solid #3333!important;
+        color: #1c84c6!important;
+    }
+    input::placeholder {
+        color: #1c84c6!important;
+    }
+    button.btn.btn-primary.mb-3.block.w-100 {
+        background: #1c84c6;
+    }
+    .col-12.custom_input i {
+        position: absolute;
+        top: 0;
+        border-right: 1px solid #3333;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        width: 50px;
+        justify-content: center;
+        font-size: 23px;
+        color: #3333;
+    }
+    .col-12.custom_input {
+        position: relative;
+    }
+    .col-12.custom_input input {
+        padding-left: 60px;
+    }
+    h5.card-title.custom_title_ {
+        color: #5eb5ec;
+    }
+</style>
     <div class="mainbackend">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>Admin Panel</h1>
-                </div>
-            </div>
+        <div class="p-3">
+           
             <div class="row">
                 <div class="col-6">
                     <div class="registerBox">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 100%">
                             <!-- <img src="..." class="card-img-top" alt="..."> -->
                             <div class="card-body">
-                                <h5 class="card-title">New User</h5>
+                                <h5 class="card-title custom_title_">Add a new User</h5>
                             </div>
                             <div class="card-body">
                                 <form action="/register" method="post" class="row">
-                                    <div class="col-12">
+                                    <div class="col-12 custom_input">
                                         <label for="staticEmail2" class="visually-hidden">Email</label>
                                         <input type="text" class="form-control" id="staticEmail2" name="email" placeholder="email@example.com">
+                                        <i class="fa-regular fa-envelope"></i>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 custom_input">
                                         <label for="staticUsername" class="visually-hidden">Username</label>
                                         <input type="text" class="form-control" id="staticUsername" name="username" placeholder="Jhondoe">
+                                        <i class="fa-regular fa-user-alien"></i>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 custom_input">
                                         <label for="inputPassword2" class="visually-hidden">Password</label>
                                         <input type="password" class="form-control" id="inputPassword2" name="password" placeholder="Password">
+                                        <i class="fa-regular fa-key"></i>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 custom_input">
                                         <label for="inputPassword3" class="visually-hidden">Confirm Password</label>
                                         <input type="password" class="form-control" id="inputPassword3" name="confpassword" placeholder="Confirm Password">
+                                        <i class="fa-regular fa-lock"></i>
                                     </div>
                                     <div class="col-12">
-                                    <button type="submit" class="btn btn-primary mb-3">Register user</button>
+                                    <button type="submit" class="btn btn-primary mb-3 block w-100">Register user</button>
                                     </div>
                                 </form>
                             </div>
@@ -42,39 +79,35 @@
                 </div>
                 <div class="col-6">
                     <div class="registerGameBox">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 100%;">
                             <!-- <img src="..." class="card-img-top" alt="..."> -->
                             <div class="card-body">
-                                <h5 class="card-title">New Game</h5>
+                                <h5 class="card-title custom_title_">Add a new game</h5>
                             </div>
                             <div class="card-body">
                                 <form action="/addgame" method="post" class="row">
-                                    <div class="col-12">
+                                    <div class="col-12 custom_input">
                                         <label for="staticgame_name" class="visually-hidden">Game Name</label>
                                         <input type="text" class="form-control" id="staticgame_name" name="game_name" placeholder="Game Name">
+                                        <i class="fa-regular fa-game-console-handheld"></i>
+                                    </div>
+                                    <div class="col-12 custom_input">
+                                        <label for="staticpv_code" class="visually-hidden">Image Url</label>
+                                        <input type="text" class="form-control" id="staticimg_url" name="image" placeholder="Insert the game's image">
+                                        <i class="fa-regular fa-image"></i>
+                                    </div>
+                                    <div class="col-12 custom_input">
+                                        <label for="inputcode_to_open_game" class="visually-hidden">Provider</label>
+                                        <input type="text" class="form-control" id="inputprovider" name="provider" placeholder="Provider">
+                                        <i class="fa-regular fa-handshake"></i>
+                                    </div>
+                                    <div class="col-12 custom_input">
+                                        <label for="inputgame_group" class="visually-hidden">Demo link</label>
+                                        <input type="text" class="form-control" id="inputdemo_link" name="demo" placeholder="Demo link">
+                                        <i class="fa-solid fa-desktop"></i>
                                     </div>
                                     <div class="col-12">
-                                        <label for="staticpv_code" class="visually-hidden">Pv Code</label>
-                                        <input type="text" class="form-control" id="staticpv_code" name="pv_code" placeholder="Pv Code">
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputcode_to_open_game" class="visually-hidden">Code To Open Game</label>
-                                        <input type="text" class="form-control" id="inputcode_to_open_game" name="code_to_open_game" placeholder="Code To Open Game">
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputgame_group" class="visually-hidden">Game Group</label>
-                                        <input type="text" class="form-control" id="inputgame_group" name="game_group" placeholder="Game Group">
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="staticis_mobile" class="visually-hidden">Is Mobile</label>
-                                        <input type="text" class="form-control" id="staticis_mobile" name="is_mobile" placeholder="Is Mobile">
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="staticimg_path" class="visually-hidden">Img Path</label>
-                                        <input type="text" class="form-control" id="staticimg_path" name="img_path" placeholder="Img Path">
-                                    </div>
-                                    <div class="col-12">
-                                    <button type="submit" class="btn btn-primary mb-3">Add new game</button>
+                                    <button type="submit" class="btn btn-primary mb-3 block w-100">Add new game</button>
                                     </div>
                                 </form>
                             </div>
