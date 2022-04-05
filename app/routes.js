@@ -2,8 +2,6 @@ module.exports = (app, passport) => {
 	//Database models and strategies
 	const User = require('./models/user');
 	const Games = require('./models/games');
-
-
 	const fs = require('fs');
 	
 
@@ -12,12 +10,8 @@ module.exports = (app, passport) => {
 	app.get('/', (req, res, next) => {
 		let rawdata = fs.readFileSync('./public/game_list.json');
 		let gamelist = JSON.parse(rawdata);
-
 		res.render('index', { 
 			title: "Home",
-			errorMessage: req.flash('errorMessage'),
-			successMessage: req.flash('successMessage'),
-			
 			user: req.user,
 			gamelist : gamelist
 		});
@@ -27,8 +21,6 @@ module.exports = (app, passport) => {
 	app.get('/profile', isAuthenticated, (req, res, next) => {
 		res.render('profile', { 
 			title: "Profile",
-			errorMessage: req.flash('errorMessage'),
-			successMessage: req.flash('successMessage'),
 			user: req.user
 		});
 	});
@@ -41,8 +33,6 @@ module.exports = (app, passport) => {
 		console.log(allUsers);
 		res.render('backend.ejs', { 
 			title: "Admin Panel",
-			errorMessage: req.flash('errorMessage'),
-			successMessage: req.flash('successMessage'),
 			user: req.user,
 			totalgames: gamelist,
 			allUsers: allUsers
@@ -99,7 +89,7 @@ module.exports = (app, passport) => {
 					if(result){
 						console.log('porco dios')
 					}
-					res.message('errorMessage', 'Porco dio')
+					req.flash('successMessage', 'Game added successfully')
 					res.redirect('/backend');
 				});
 			}
