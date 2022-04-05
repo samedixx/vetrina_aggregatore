@@ -1,7 +1,7 @@
 <%- include('layout/header.ejs') %>
 
 <style>
-    .section_services {
+/*    .section_services {
         display: flex;
         grid-gap: 27px;
         padding: 10px;
@@ -73,15 +73,67 @@
         text-align: center; 
     } 
 
-
-
-
+*/
+.btn-primary:hover {
+    color: #1c84c6;
+    background-color: #ffffff;
+    border-color: #81ceff;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #1c84c6;
+    border-color: #0b85d3;
+}
+.mainbackend table {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+.Games_container .gamesTable tr td img.gameCase {
+    max-width: 100px;
+    width: 100px;
+    min-width: 100px;
+}
+.Games_container td.demoLink .gameDemo a {
+    display: inline-block;
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+.Games_container td.demoLink {
+    width: 300px;
+    max-width: 300px;
+}
+.Games_container td.gameImages {
+    max-width: 100px;
+    min-width: 100px;
+    width: 100px;
+}
+.Games_container table tr th {
+    text-align: center;
+}
+.Games_container table tr td {
+    text-align: center;
+}
+.Games_container .gamesTable td:last-child button {
+    width: 100%;
+    min-width: 55px;
+}
+.Users_container table tr th {
+    text-align: center;
+}
+.Users_container table tr td {
+    text-align: center;
+}
+.Users_container .userTable td:last-child button {
+    width: 100%;
+    min-width: 55px;
+}
 </style>
     <div class="mainbackend">
         <div class="p-3">
-           
             <div class="row">
-                <div></div>
                 <div class="col-6">
                     <div class="registerBox">
                         <div class="card" style="width: 100%">
@@ -158,156 +210,153 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="section_services">
-            <div class="col-6">
-                <div class="Provider_container">
-                    <header>
-                        <h4 class="card-title custom_title_"> Providers</h4>
-                    </header>
-                    <div class="infoandsearch">
-                        <h5 class="card-title custom_title_">Numero totale di utenti:58 </h5>
+        <div class="p-3">
+            <div class="row">
+                <div class="col-6">
+                    <div class="Users_container">
+                        <header>
+                            <h4 class="card-title custom_title_">Users</h4>
+                        </header>
+                        <div class="infoandsearch">
+                            <h5 class="card-title custom_title_">All users: <span class="allUsersLength"></span></h5>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                     <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                                </div>
+                                <input type="text" class="form-control searchUsers" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                          </div>          
+                        </div>
+                        <table class="table-bordered">
+                             <thead>
+                                <tr>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">User Type</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">Delete</th>
+                                 </tr>
+                        </thead>
+                        <tbody class="userTable">
+                          <!-- Dynamic Users Loading... -->
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="Games_container">
+                        <header>
+                            <h4 class="card-title custom_title_">Game List</h4>
+                        </header>
+                        <div class="infoandsearch">
+                            <h5 class="card-title custom_title_">Numero totale di giochi: <span class="allGamesLength"></span></h5>
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
                                  <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                                </div>
+                                <input type="text" class="form-control searchGames" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                             </div>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                      </div>          
+                        </div>                               
+                        <table class="table-bordered">
+                             <thead>
+                                <tr>
+                                    <th scope="col">Logo</th>
+                                    <th scope="col">Game</th>
+                                    <th scope="col">Provider</th>
+                                    <th scope="col">Demo link</th>
+                                    <th scope="col">Delete</th>
+                                 </tr>
+                        </thead>
+                        <tbody class="gamesTable">
+                            <!-- Dynamic Games Loading... -->
+                        </tbody>
+                      </table>
                     </div>
-                    <table class="table-bordered">
-                         <thead>
-                            <tr>
-                                <th scope="col">Logo</th>
-                                <th scope="col">Provider</th>
-                                <th scope="col">N'b0 Giochi</th>
-                                <th scope="col">Elimina</th>
-                             </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row" class="w-25">
-                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" class="img-fluid img-thumbnail" alt="Game">
-                        </td>
-                        <td>sheeps</td>
-                        <td>18</td>
-                        <td>
-                            <button type="button" class="btn btn-primary w-25">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                              </svg>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>
-                            <button type="button" class="btn btn-primary w-25">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                          </svg>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>
-                            <button type="button" class="btn btn-primary w-25">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                          </svg>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="Provider_container">
-                    <header>
-                        <h4 class="card-title custom_title_"> Giochi</h4>
-                    </header>
-                    <div class="infoandsearch">
-                        <h5 class="card-title custom_title_">Numero totale di giochi:124 </h5>
-                        <div class="input-group input-group-sm mb-3">
-                            <div class="input-group-prepend">
-                             <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                        </div>
-                </div>          
-                    
-                    <table class="table-bordered">
-                         <thead>
-                            <tr>
-                                <th scope="col">Logo</th>
-                                <th scope="col">Gioco</th>
-                                <th scope="col">Demo link</th>
-                                <th scope="col">Elimina</th>
-                             </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row" class="w-25">
-                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" class="img-fluid img-thumbnail" alt="Game">
-                        </td>
-                        <td>sheeps</td>
-                        <td><button type="button" class="btn btn-link">Demo</button</td>
-                        <td>
-                            <button type="button" class="btn btn-primary w-25">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                              </svg>
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td><button type="button" class="btn btn-link">Demo</button></td>
-                        <td>
-                            <button type="button" class="btn btn-primary w-25">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                          </svg>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td><button type="button" class="btn btn-link">Demo</button</td>
-                        <td>
-                            <button type="button" class="btn btn-primary w-25">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                          </svg>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
                 </div>
             </div>
         </div>
-
-
-
-        
     </div>
-
-    <script>
-        var game_list = <%-JSON.stringify(totalgames)%>;
-        console.log(game_list.games.length);
-
-        var allUsers =  <%- JSON.stringify(allUsers)%>;
-        console.log(allUsers);
-
-
-        // Build Table All Users
-        var users_table = ''
-
-    </script>
-
 <%- include('layout/footer.ejs') %>
+
+<% if(totalgames.games.length >= 1){ %>
+    <% if(totalgames !== 'undefined'){ %>
+      <script>
+        $(document).ready(function () {
+          var game_list = <%-JSON.stringify(totalgames)%>;
+          console.log(game_list.games);
+          if(game_list){
+            if(game_list.games.length >= 1){
+              $('.allGamesLength').html(game_list.games.length);
+              for(var i = 0;i < game_list.games.length;i++){
+                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list.games[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list.games[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list.games[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list.games[i].demo+'" target="_blank">'+game_list.games[i].demo+'</a></span></td><td><button type="button" class="btn btn-primary w-25"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" /></svg></button></td></tr><tr>');
+              }
+
+            }
+          }
+
+          $(".searchGames").keyup(function () {
+                var data = this.value.toUpperCase().split(" ");
+                var jo = $(".gamesTable").find("tr");
+                if (this.value == "") {
+                    jo.show();
+                    return;
+                }
+                jo.hide();
+
+                jo.filter(function (i, v) {
+                    var txt = '';
+                    $(v).find("td:nth-child(2)").children().each(function(n,e){
+                        txt += $(e).html().toLocaleUpperCase();
+                    });
+                    for(var d=0; d<data.length; d++){
+                        if (txt.search(data[d])>=0) {
+                            return true;
+                        }
+                    }
+                    return false;
+                })
+                .show();
+            });
+        });
+      </script>
+    <% } %>
+  <% } %>
+
+  <% if(allUsers.length >= 1){ %>
+    <% if(allUsers !== 'undefined'){ %>
+      <script>
+        $(document).ready(function () {
+            var allUsers =  <%- JSON.stringify(allUsers)%>;
+            console.log(allUsers);
+            if(allUsers){
+                if(allUsers.length >= 1){
+                $('.allUsersLength').html(allUsers.length);
+                for(var i = 0;i < allUsers.length;i++){
+                    $('.userTable').append('<tr><td><span class="userName">'+allUsers[i].username+'</span></td><td><span class="userEmail">'+allUsers[i].email+'</span></td><td><span class="userType">'+allUsers[i].usertype+'</span></td><td class="usersPasswords"><span class="userPassword">'+allUsers[i].password+'</span></td><td><button type="button" class="btn btn-primary w-25"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" /></svg></button></td></tr>');
+                }
+                }
+            }
+
+            $(".searchUsers").keyup(function () {
+                var data = this.value.toUpperCase().split(" ");
+                var jo = $(".userTable").find("tr");
+                if (this.value == "") {
+                    jo.show();
+                    return;
+                }
+                jo.hide();
+
+                jo.filter(function (i, v) {
+                    var $t = $(this).find("td").first().children(0).html().toUpperCase();
+                    for (var d = 0; d < data.length; ++d) {
+                        if ($t.indexOf(data[d]) !== -1) {
+                            return true;
+                        }
+                    }
+                    return false;
+                })
+                .show();
+            });
+        });
+      </script>
+    <% } %>
+  <% } %>

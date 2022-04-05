@@ -9,15 +9,13 @@
     <link href="/css/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@18657a9/css/all.min.css" rel="stylesheet" type="text/css" />
 
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
   </head>
 <body>
     <!-- Header Main -->
 
     <% if (errorMessage) { %>
 
-      <% if (errorMessage !== 'undefined') { %>
+      <% if (errorMessage !== 'undefined' && errorMessage.length >= 1) { %>
         <script>
           Swal.fire({
             title: 'Error!',
@@ -34,7 +32,7 @@
 
     <% if (successMessage) { %>
 
-      <% if (successMessage !== 'undefined') { %>
+      <% if (successMessage !== 'undefined' && successMessage.length >= 1) { %>
 
         <script>
           Swal.fire({
