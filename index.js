@@ -42,7 +42,7 @@ require('./app/routes.js')(app, passport);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Port Config
+//Port Config okey
 app.set('port', process.env.PORT || 3000);
 
 //Server Start Listening
