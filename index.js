@@ -43,7 +43,7 @@ require('./app/routes.js')(app, passport);
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Port Config
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 3000);
 
 //Server Start Listening
 app.listen(app.get('port'), () => {

@@ -1,7 +1,7 @@
-<div class="main_sidebar sidebar_is_open d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem; height: 100%; transition:0.4s all ease-out;">
+<div class="main_sidebar d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem; height: 100%; transition:0.4s all ease-out;">
     <div class=" border-top sidebar_custom">
         <a href="#" class="user_box d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none">
-          <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle user_img user_img_is_big" style="transition: 0.4s all ease-out;">
+          <img src="https://occ-0-4525-778.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABTYctxxbe-UkKEdlMxXm4FVGD6DqTHkQ0TQ5CQJ9jbOMnG0CYxYcSICcTUQz8DrB7CpKUGpqJVMtEqksLlvSJx2ac3Ak.png?r=a41" alt="mdo" width="24" height="24" class="rounded-circle user_img" style="transition: 0.4s all ease-out;">
         </a>
         
       </div>
@@ -12,7 +12,7 @@
       
       <li class="nav_item userSec">
         <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-          <span class="menu-item">
+          <span class="menu-item hidden">
             Welcome back,
             <br>
             <span class="user_name"> <%= user.username %></span>
@@ -22,13 +22,13 @@
       <li class="nav_item">
         <a href="#" class="diamond nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
             <i class="fa fa-diamond" aria-hidden="true"></i>
-            <span class="menu-item">Menu View</span>
+            <span class="menu-item hidden">Menu View</span>
         </a>
       </li>
       <li class="nav-item">
         <a href="/backend" class="nav-link py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
             <i class="fa fa-podcast" aria-hidden="true"></i>
-            <span class="menu-item">Backend</span>
+            <span class="menu-item hidden">Backend</span>
         </a>
     </ul>
   </div>
@@ -50,6 +50,25 @@
     .hidden {
       display: none!important;
     }
+
+    .serviceMoved {
+        margin-left:16%;
+        transition: 0.4s all ease-out;
+    }
+
+    .main-cont-moved {
+        margin-left:14%;
+        transition: 0.4s all ease-out;
+    }
+
+    .secondNav-moved {
+        margin-left: 15%;
+        transition: 0.4s all ease-out;
+    }
+
+
+
+   
   </style>
 
   
@@ -57,7 +76,7 @@
 
   <script>
 
-    var isOpen = true;
+    var isOpen = false;
     
     $(document).off('click', '.diamond');
     $(document).on('click', '.diamond', function() {
@@ -65,11 +84,17 @@
         $('.main_sidebar').addClass('sidebar_is_open');
         $('.user_img').addClass('user_img_is_big');
         $('.menu-item').removeClass('hidden');
+        $('.headSection').addClass('serviceMoved'); 
+        $('.main-container').addClass('main-cont-moved'); 
+        $('.second_nav').addClass('secondNav-moved');
         isOpen = !isOpen;
       }else {
         $('.main_sidebar').removeClass('sidebar_is_open');
         $('.user_img').removeClass('user_img_is_big');
         $('.menu-item').addClass('hidden');
+        $('.headSection').removeClass('serviceMoved'); 
+        $('.main-container').removeClass('main-cont-moved');
+        $('.second_nav').removeClass('secondNav-moved');
         isOpen = !isOpen;
       }
 

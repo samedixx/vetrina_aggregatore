@@ -88,6 +88,7 @@
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+    border: 1px solid #cccccc!important;
 }
 .Games_container .gamesTable tr td img.gameCase {
     max-width: 100px;
@@ -130,119 +131,219 @@
     width: 100%;
     min-width: 55px;
 }
+.col-12.custom_input i {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    left: 25px;
+}
+.col-12.custom_input {
+    position: relative;
+}
+
+.col-12.custom_input input {
+    padding-left: 40px;
+    margin: 10px 0;
+}
+
+.services_button {
+  padding-left:20px;
+  display:flex;
+  height:60px;
+  grid-gap:10px;
+}
+
+.hidden {
+  display: none!important;
+}
+
+.mainbackend {
+    height: 100vh;
+}
+
+.Games_container {
+    height: 100vh;
+    overflow-y: scroll;
+    padding-bottom: 95px;
+}
+
+.infoandsearch h5 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6d6d6d;
+}
+
+h4.card-title.custom_title_ {
+    color: #1c84c6;
+}
+
+td.actions_box {
+    display: flex;
+    height: 60.69px;
+}
+
+td.actions_box button {
+    background: transparent;
+    border: 0;
+    border-right: 1px solid #ccc;
+}
+
+button#deleteGame i {
+    color: red;
+}
+
+button#updateGame i {
+    color: green;
+}
+
+.mainbackend table thead tr {
+    background: #1c84c63b;
+}
+
+.mainbackend table thead tr th {
+    color: #505050;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+}
+
 </style>
     <div class="mainbackend">
-        <div class="p-3">
-            <div class="row">
-                <div class="col-6">
-                    <div class="registerBox">
-                        <div class="card" style="width: 100%">
-                            <!-- <img src="..." class="card-img-top" alt="..."> -->
-                            <div class="card-body">
-                                <h5 class="card-title custom_title_">Add a new User</h5>
-                            </div>
-                            <div class="card-body">
-                                <form action="/register" method="post" class="row">
-                                    <div class="col-12 custom_input">
-                                        <label for="staticEmail2" class="visually-hidden">Email</label>
-                                        <input type="text" class="form-control" id="staticEmail2" name="email" placeholder="email@example.com" required>
-                                        <i class="fa-regular fa-envelope"></i>
-                                    </div>
-                                    <div class="col-12 custom_input">
-                                        <label for="staticUsername" class="visually-hidden">Username</label>
-                                        <input type="text" class="form-control" id="staticUsername" name="username" placeholder="Jhondoe" required>
-                                        <i class="fa-regular fa-user-alien"></i>
-                                    </div>
-                                    <div class="col-12 custom_input">
-                                        <label for="inputPassword2" class="visually-hidden">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword2" name="password" placeholder="Password" required>
-                                        <i class="fa-regular fa-key"></i>
-                                    </div>
-                                    <div class="col-12 custom_input">
-                                        <label for="inputPassword3" class="visually-hidden">Confirm Password</label>
-                                        <input type="password" class="form-control" id="inputPassword3" name="confpassword" placeholder="Confirm Password" required>
-                                        <i class="fa-regular fa-lock"></i>
-                                    </div>
-                                    <div class="col-12">
-                                    <button type="submit" class="btn btn-primary mb-3 block w-100">Register user</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="registerGameBox">
-                        <div class="card" style="width: 100%;">
-                            <!-- <img src="..." class="card-img-top" alt="..."> -->
-                            <div class="card-body">
-                                <h5 class="card-title custom_title_">Add a new game</h5>
-                            </div>
-                            <div class="card-body">
-                                <form action="/addgame" method="post" class="row">
-                                    <div class="col-12 custom_input">
-                                        <label for="staticgame_name" class="visually-hidden">Game Name</label>
-                                        <input type="text" class="form-control" id="staticgame_name" name="game_name" placeholder="Game Name"  required>
-                                        <i class="fa-regular fa-game-console-handheld"></i>
-                                    </div>
-                                    <div class="col-12 custom_input">
-                                        <label for="staticpv_code" class="visually-hidden">Image Url</label>
-                                        <input type="text" class="form-control" id="staticimg_url" name="image" placeholder="Insert the game's image" required>
-                                        <i class="fa-regular fa-image"></i>
-                                    </div>
-                                    <div class="col-12 custom_input">
-                                        <label for="inputcode_to_open_game" class="visually-hidden">Provider</label>
-                                        <input type="text" class="form-control" id="inputprovider" name="provider" placeholder="Provider" required>
-                                        <i class="fa-regular fa-handshake"></i>
-                                    </div>
-                                    <div class="col-12 custom_input">
-                                        <label for="inputgame_group" class="visually-hidden">Demo link</label>
-                                        <input type="text" class="form-control" id="inputdemo_link" name="demo" placeholder="Demo link" required>
-                                        <i class="fa-solid fa-desktop"></i>
-                                    </div>
-                                    <div class="col-12">
-                                    <button type="submit" class="btn btn-primary mb-3 block w-100">Add new game</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Button trigger modal -->
+
+        <div class="services_button">
+          <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#registerModal">
+            Register New User
+            <i class="fa-solid fa-user-plus"></i>
+          </button>
+          <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#newGameModal">
+            Add New Game
+            <i class="fa-solid fa-gamepad-modern"></i>
+          </button>
+          <button id="allUser" type="button" class="btn btn-primary mt-2">
+            Show All Users
+            <i class="fa-solid fa-users"></i>
+          </button>
+          <button id="allGames" type="button" class="btn btn-primary mt-2">
+            Show All Games
+            <i class="fa-solid fa-slot-machine"></i>
+          </button>
         </div>
+
+        <!-- Register Modal -->
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Register <i class="fa-solid fa-user-plus"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="/register" method="post" class="row">
+                  <div class="col-12 custom_input">
+                      <label for="staticEmail2" class="visually-hidden">Email</label>
+                      <input type="text" class="form-control" id="staticEmail2" name="email" placeholder="email@example.com" required>
+                      <i class="fa-regular fa-envelope"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="staticUsername" class="visually-hidden">Username</label>
+                      <input type="text" class="form-control" id="staticUsername" name="username" placeholder="Username" required>
+                      <i class="fa-regular fa-user-alien"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="inputPassword2" class="visually-hidden">Password</label>
+                      <input type="password" class="form-control" id="inputPassword2" name="password" placeholder="Password" required>
+                      <i class="fa-regular fa-key"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="inputPassword3" class="visually-hidden">Confirm Password</label>
+                      <input type="password" class="form-control" id="inputPassword3" name="confpassword" placeholder="Confirm Password" required>
+                      <i class="fa-regular fa-lock"></i>
+                  </div>
+                  <div class="col-12">
+                  <button type="submit" class="btn btn-primary mb-3 block w-100">Register user</button>
+                  </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add new game modal -->
+        <div class="modal fade" id="newGameModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Game <i class="fa-solid fa-slot-machine"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="/addgame" method="post" class="row">
+                  <div class="col-12 custom_input">
+                      <label for="staticgame_name" class="visually-hidden">Game Name</label>
+                      <input type="text" class="form-control" id="staticgame_name" name="game_name" placeholder="Game Name"  required>
+                      <i class="fa-regular fa-game-console-handheld"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="staticpv_code" class="visually-hidden">Image Url</label>
+                      <input type="text" class="form-control" id="staticimg_url" name="image" placeholder="Image link" required>
+                      <i class="fa-regular fa-image"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="inputcode_to_open_game" class="visually-hidden">Provider</label>
+                      <input type="text" class="form-control" id="inputprovider" name="provider" placeholder="Provider" required>
+                      <i class="fa-regular fa-handshake"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="inputgame_group" class="visually-hidden">Demo link</label>
+                      <input type="text" class="form-control" id="inputdemo_link" name="demo" placeholder="Demo link" required>
+                      <i class="fa-solid fa-desktop"></i>
+                  </div>
+                  <div class="col-12">
+                  <button type="submit" class="btn btn-primary mb-3 block w-100">Add new game</button>
+                  </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="p-3">
             <div class="row">
-                <div class="col-6">
-                    <div class="Users_container">
+                <div>
+                    <div class="Users_container hidden">
                         <header>
                             <h4 class="card-title custom_title_">Users</h4>
                         </header>
                         <div class="infoandsearch">
-                            <h5 class="card-title custom_title_">All users: <span class="allUsersLength"></span></h5>
-                                <div class="input-group input-group-sm mb-3">
-                                    <div class="input-group-prepend">
-                                     <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
-                                </div>
-                                <input type="text" class="form-control searchUsers" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                          </div>          
-                        </div>
-                        <table class="table-bordered">
-                             <thead>
-                                <tr>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">User Type</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Delete</th>
-                                 </tr>
-                        </thead>
-                        <tbody class="userTable">
-                          <!-- Dynamic Users Loading... -->
-                        </tbody>
-                      </table>
-                    </div>
+                          <h5 class="card-title custom_title_">All users: <span class="allUsersLength"></span></h5>
+                            <div class="input-group input-group-sm mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                              </div>
+                              <input type="text" class="form-control searchUsers" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            </div>          
+                          </div>
+                          <table class="table-bordered">
+                            <thead>
+                              <tr>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">User Type</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody class="userTable">
+                              <!-- Dynamic Users Loading... -->
+                              </tbody>
+                            </table>
+                          </div>
                 </div>
-                <div class="col-6">
+                <div>
                     <div class="Games_container">
                         <header>
                             <h4 class="card-title custom_title_">Game List</h4>
@@ -251,20 +352,20 @@
                             <h5 class="card-title custom_title_">Numero totale di giochi: <span class="allGamesLength"></span></h5>
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
-                                 <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                                  <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
                                 </div>
                                 <input type="text" class="form-control searchGames" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                             </div>
                         </div>                               
                         <table class="table-bordered">
-                             <thead>
+                            <thead>
                                 <tr>
                                     <th scope="col">Logo</th>
                                     <th scope="col">Game</th>
                                     <th scope="col">Provider</th>
                                     <th scope="col">Demo link</th>
-                                    <th scope="col">Delete</th>
-                                 </tr>
+                                    <th scope="col">Actions</th>
+                                </tr>
                         </thead>
                         <tbody class="gamesTable">
                             <!-- Dynamic Games Loading... -->
@@ -277,6 +378,25 @@
     </div>
 <%- include('layout/footer.ejs') %>
 
+<script>
+
+  // All users and All games click function
+  $(document).off('click', '#allUser');
+  $(document).on('click', '#allUser', function(){
+    console.log('all Users clicked');
+    $('.Games_container').addClass('hidden');
+    $('.Users_container').removeClass('hidden');
+  });
+
+  $(document).off('click', '#allGames');
+  $(document).on('click', '#allGames', function(){
+    console.log('all Users clicked');
+    $('.Users_container').addClass('hidden');
+    $('.Games_container').removeClass('hidden');
+  });
+
+</script>
+
 <% if(totalgames.games.length >= 1){ %>
     <% if(totalgames !== 'undefined'){ %>
       <script>
@@ -287,7 +407,7 @@
             if(game_list.games.length >= 1){
               $('.allGamesLength').html(game_list.games.length);
               for(var i = 0;i < game_list.games.length;i++){
-                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list.games[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list.games[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list.games[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list.games[i].demo+'" target="_blank">'+game_list.games[i].demo+'</a></span></td><td><button type="button" class="btn btn-primary w-25"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" /></svg></button></td></tr><tr>');
+                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list.games[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list.games[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list.games[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list.games[i].demo+'" target="_blank">'+game_list.games[i].demo+'</a></span></td><td class="actions_box"><button id="deleteGame"><i class="fa-solid fa-trash"></i></button><button id="updateGame"><i class="fa-solid fa-file-pen"></i></button></td></tr><tr>');
               }
 
             }

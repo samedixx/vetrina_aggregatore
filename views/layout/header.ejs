@@ -13,6 +13,8 @@
 <body>
     <!-- Header Main -->
 
+
+
     <% if (errorMessage) { %>
 
       <% if (errorMessage !== 'undefined' && errorMessage.length >= 1) { %>
@@ -66,15 +68,14 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
-              <%if (user) { %>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Log out  <i style="color:#fff; margin-left: 10px;" class="fa-solid fa-arrow-right-from-bracket"></i></a>
-                   
-                </li>
-              <% } %>
+            
             </ul>
             <%if (user) { %>
-                <span class="logUserd"><%= user.username %></span>
+                <span class="logUserd">  
+                    <li class="nav-item">
+                        <a class="nav-link btn-primary text-white" href="/logout">Log out  <i style="color:#fff; margin-left: 10px;" class="fa-solid fa-arrow-right-from-bracket"></i></a>                 
+                    </li>
+                </span>
             <% }else{ %>
                 <form action="/login" method="post" class="row">
                     <div class="col-auto">

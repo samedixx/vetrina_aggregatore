@@ -1,7 +1,23 @@
 <%- include('layout/header.ejs') %>
  <!-- Jquery -->
  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+<style>
+/* Mobile View */
+@media (max-width: 768px) {
+  .login_container form {
+        width: auto!important;
+        max-width: auto!important;
+        min-width: auto!important;
+    }
+}
+.game a img:hover {
+    transform: scale(1.3);
+    transition: 0.4s all ease-out;
+}
+li.part-item.game {
+    overflow: hidden;
+}
+</style>
   <%if (!user) { %>
     
   <div class="login_container login_container d-flex w-100 justify-content-center align-items-center p-5">
@@ -40,7 +56,7 @@
         </div>
 
         <div class="second_nav hidden">
-          <button  onclick="goBack();">Indietro</button>
+          <button  onclick="goBack();"><span class="fa fa-arrow-left"></span></button>
           <div class="crumbs"></div>
         </div>
 
