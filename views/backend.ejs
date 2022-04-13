@@ -400,17 +400,17 @@ button#updateGame i {
 
 </script>
 
-<% if(totalgames.games.length >= 1){ %>
+<% if(totalgames.length >= 1){ %>
     <% if(totalgames !== 'undefined'){ %>
       <script>
         $(document).ready(function () {
           var game_list = <%-JSON.stringify(totalgames)%>;
-          console.log(game_list.games);
+          console.log(game_list);
           if(game_list){
-            if(game_list.games.length >= 1){
-              $('.allGamesLength').html(game_list.games.length);
-              for(var i = 0;i < game_list.games.length;i++){
-                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list.games[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list.games[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list.games[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list.games[i].demo+'" target="_blank">'+game_list.games[i].demo+'</a></span></td><td class="actions_box"><button id="deleteGame"><i class="fa-solid fa-trash"></i></button><button id="updateGame"><i class="fa-solid fa-file-pen"></i></button></td></tr><tr>');
+            if(game_list.length >= 1){
+              $('.allGamesLength').html(game_list.length);
+              for(var i = 0;i < game_list.length;i++){
+                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list[i].demo+'" target="_blank">'+game_list[i].demo+'</a></span></td><td class="actions_box"><button id="deleteGame"><i class="fa-solid fa-trash"></i></button><button id="updateGame"><i class="fa-solid fa-file-pen"></i></button></td></tr><tr>');
               }
 
             }

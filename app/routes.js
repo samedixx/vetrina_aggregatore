@@ -27,8 +27,8 @@ module.exports = (app, passport) => {
 
 	app.get('/backend', isAdmin, async (req, res, next) => {
 
-		let rawdata = fs.readFileSync('./public/game_list.json');
-		let gamelist = JSON.parse(rawdata);
+		//let rawdata = fs.readFileSync('./public/game_list.json');
+		let gamelist = await Games.find({});
 		var allUsers = await User.find({});
 		res.render('backend.ejs', { 
 			title: "Admin Panel",
