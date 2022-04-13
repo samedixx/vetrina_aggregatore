@@ -88,7 +88,7 @@ li.part-item.game {
       var img_provider_path = 'https://area.test.media.termsandcondition.xyz/providers/';
       var game_list = <%-JSON.stringify(gamelist)%>;
 
-      console.debug('game list AAAA ->', game_list);
+      console.debug('game list BBB ->', game_list);
       
       var providerIsOpen = false;
       
@@ -192,7 +192,7 @@ li.part-item.game {
           //$(game_list, function( data ) {
       
           // Push providers
-          $.each(game_list.games, function(i,v){
+          $.each(game_list, function(i,v){
               console.debug(game_list)
               // if provider is not inside array_provider push it in
               if (array_provider.indexOf(v.provider) === -1){

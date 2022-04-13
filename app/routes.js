@@ -8,8 +8,7 @@ module.exports = (app, passport) => {
 
 	//Routes without session
 	app.get('/', (req, res, next) => {
-		let rawdata = fs.readFileSync('./public/game_list.json');
-		let gamelist = JSON.parse(rawdata);
+		let gamelist = await Games.find({});
 		res.render('index', { 
 			title: "Home",
 			user: req.user,
