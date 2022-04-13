@@ -63,8 +63,13 @@ module.exports = (app, passport) => {
 		var image = req.body.image;
 		var provider = req.body.provider; 
 		var demo = req.body.demo;
+		if(name !== 'undefined' && name !== undefined){
+			await updateGameFromList(name, image, provider, demo);
+			req.flash('successMessage', 'Game added successfully')
+			res.redirect('/backend');
+		}
 
-		await fs.readFile('./public/game_list.json', async function (err, data) {
+		/*await fs.readFile('./public/game_list.json', async function (err, data) {
 			var json = JSON.parse(data);
 			var isDouble = 0;
 			for(var i = 0; i < json.games.length;i++){
@@ -91,7 +96,7 @@ module.exports = (app, passport) => {
 					res.redirect('/backend');
 				});
 			}
-		});
+		});*/
 	});
 
 	app.post('/updategames', isAdmin, async (req, res) => {
