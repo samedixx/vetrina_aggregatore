@@ -7,7 +7,7 @@ module.exports = (app, passport) => {
 
 
 	//Routes without session
-	app.get('/', (req, res, next) => {
+	app.get('/', async (req, res, next) => {
 		let gamelist = await Games.find({});
 		res.render('index', { 
 			title: "Home",
