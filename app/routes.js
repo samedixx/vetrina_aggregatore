@@ -30,7 +30,6 @@ module.exports = (app, passport) => {
 		let rawdata = fs.readFileSync('./public/game_list.json');
 		let gamelist = JSON.parse(rawdata);
 		var allUsers = await User.find({});
-		console.log(allUsers);
 		res.render('backend.ejs', { 
 			title: "Admin Panel",
 			user: req.user,
@@ -95,6 +94,44 @@ module.exports = (app, passport) => {
 			}
 		});
 	});
+
+	app.post('/updategames', isAdmin, async (req, res) => {
+		let doneUpdating = 0;
+		await fs.readFile('./public/game_list.json', async function (err, data) {
+			var json = JSON.parse(data);
+			if(json.games.length >= 1){
+				console.log(json.games.length);
+				for(var i = 0;i < json.games.length;i++){
+					console.log(json.games[i].name);
+					if(json.games[i].name !== 'undefined' && json.games[i].name !== undefined){
+						await updateGameFromList(json.games[i].name, json.games[i].image, json.games[i].provider, json.games[i].demo);
+					}
+				}
+				console.log("All Games Updated");
+				res.redirect('/backend');
+				
+			}
+		});
+	});
+
+	//GameListUpdateGame
+	async function updateGameFromList(name, image, provider, demo){
+		Games.findOne({'name': name}, async function (err, game){
+			if(err){console.log(err)}
+			if(!game){
+				let newGame = new Games();
+				newGame.name = name;
+				newGame.image = image;
+				newGame.provider = provider;
+				newGame.demo = demo;
+				await newGame.save(function (err){
+					if (err){console.log(err);throw err;}
+				});
+			}else{
+				console.log("Game allready in");
+			}
+		});
+	}
 
 	//Session checks
 	function isAuthenticated(req, res, next){
