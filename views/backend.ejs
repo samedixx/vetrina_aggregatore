@@ -209,6 +209,9 @@ button#updateGame i {
     border-right: 1px solid #ccc;
     padding: 10px;
 }
+.gIdhidden{
+  display: none;
+}
 
 </style>
     <div class="mainbackend">
@@ -246,7 +249,7 @@ button#updateGame i {
                 </div>
                 <div class="modal-body">
                   <form action="/deleteGame" method="post" class="row">
-                    <div class="col-12 hidden">
+                    <div class="col-12 gIdhidden">
                         <input type="text" class="form-control" id="gtodeleteid" name="gameid" disabled required>
                     </div>
                     <div class="col-12">
