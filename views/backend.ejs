@@ -464,7 +464,7 @@ button#updateGame i {
 
             $(".deleteGameT").on('click',function(){
                 console.log("Delete Games Triggered");
-                var gametodestroyid = $(this).val();
+                var gametodestroyid = $(this).attr('realObjid');
                 console.log("id: ", gametodestroyid);
                 setTimeout(function(){
                     $('#gtodeleteid').val(gametodestroyid.toString());
