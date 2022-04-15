@@ -2,7 +2,7 @@ module.exports = (app, passport) => {
 	//Database models and strategies
 	const User = require('./models/user');
 	const Games = require('./models/games');
-	const fs = require('fs');
+	//const fs = require('fs');
 	
 
 
@@ -16,6 +16,19 @@ module.exports = (app, passport) => {
 		});
 	});
 
+	app.post('/login', passport.authenticate('local-login', {
+		successRedirect: '/',
+		failureRedirect: '/',
+		failureFlash: true
+	}));
+
+	app.post('/register', isAdmin, passport.authenticate('local-register', {
+		successRedirect: '/',
+		failureRedirect: '/',
+		failureFlash: true
+	}));
+
+
 	//Routes with session
 	app.get('/profile', isAuthenticated, (req, res, next) => {
 		res.render('profile', { 
@@ -26,7 +39,6 @@ module.exports = (app, passport) => {
 
 	app.get('/backend', isAdmin, async (req, res, next) => {
 
-		//let rawdata = fs.readFileSync('./public/game_list.json');
 		let gamelist = await Games.find({});
 		var allUsers = await User.find({});
 		res.render('backend.ejs', { 
@@ -43,21 +55,6 @@ module.exports = (app, passport) => {
 		res.redirect('/');
 	});
 
-
-	//Post without session
-	app.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/',
-		failureRedirect: '/',
-		failureFlash: true
-	}));
-
-
-	app.post('/register', isAdmin, passport.authenticate('local-register', {
-		successRedirect: '/',
-		failureRedirect: '/',
-		failureFlash: true
-	}));
-
 	app.post('/addgame', isAdmin, async (req, res) => {
 		var name = req.body.game_name;
 		var image = req.body.image;
@@ -68,38 +65,18 @@ module.exports = (app, passport) => {
 			req.flash('successMessage', 'Game added successfully')
 			res.redirect('/backend');
 		}
-
-		/*await fs.readFile('./public/game_list.json', async function (err, data) {
-			var json = JSON.parse(data);
-			var isDouble = 0;
-			for(var i = 0; i < json.games.length;i++){
-				if(json.games[i].name === name){
-					isDouble = 1;
-				}
-			};
-			if(isDouble == 0) {		
-				json.games.push({
-					"name" : name,
-					"image" : image,
-					"provider" : provider.toLowerCase(),
-					"demo" : demo
-				});
-				await fs.writeFile('./public/game_list.json', JSON.stringify(json), function(err, result){
-					if(err){
-						console.log(err)
-					}
-					console.log('writeFile ==> ', result);
-					if(result){
-						console.log('porco dios')
-					}
-					req.flash('successMessage', 'Game added successfully')
-					res.redirect('/backend');
-				});
-			}
-		});*/
 	});
 
-	app.post('/updategames', isAdmin, async (req, res) => {
+	app.post('/deleteGame', isAdmin, async (req, res) => {
+		var id = req.body.gameid;
+		if(id.length >= 2){
+			await deleteGamefromlist(id);
+			req.flash('successMessage', 'Game deleted')
+			res.redirect('/backend');
+		}
+	});
+
+	/*app.post('/updategames', isAdmin, async (req, res) => {
 		let doneUpdating = 0;
 		await fs.readFile('./public/game_list.json', async function (err, data) {
 			var json = JSON.parse(data);
@@ -116,9 +93,9 @@ module.exports = (app, passport) => {
 				
 			}
 		});
-	});
+	});*/
 
-	//GameListUpdateGame
+	//Add Game to list db
 	async function updateGameFromList(name, image, provider, demo){
 		Games.findOne({'name': name}, async function (err, game){
 			if(err){console.log(err)}
@@ -133,6 +110,17 @@ module.exports = (app, passport) => {
 				});
 			}else{
 				console.log("Game allready in");
+			}
+		});
+	}
+
+	//Remove Game from list db
+	async function deleteGamefromlist(id){
+		Games.findByIdAndDelete(id, function (err, game){
+			if(err){
+				console.log(err)
+			}else{
+				console.log("Game Deleted: ", game);
 			}
 		});
 	}

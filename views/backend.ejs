@@ -190,7 +190,7 @@ td.actions_box button {
     border-right: 1px solid #ccc;
 }
 
-button#deleteGame i {
+button.deleteGameT i {
     color: red;
 }
 
@@ -235,6 +235,28 @@ button#updateGame i {
                 <button id="uploadGameList" type="submit" class="btn btn-primary mt-2">Test Upload GameList</button>
           </form>
         </div>
+
+        <!-- Delete Game Modal -->
+        <div class="modal fade" id="deleteGame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Delete Game? <i class="fa-solid fa-user-plus"></i></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/deleteGame" method="post" class="row">
+                    <div class="col-12 hidden">
+                        <input type="text" class="form-control" id="gtodeleteid" name="gameid" value="" disabled required>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-danger mb-3 block w-100">Yes, delete game</button>
+                    </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
 
         <!-- Register Modal -->
         <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -410,7 +432,7 @@ button#updateGame i {
             if(game_list.length >= 1){
               $('.allGamesLength').html(game_list.length);
               for(var i = 0;i < game_list.length;i++){
-                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list[i].demo+'" target="_blank">'+game_list[i].demo+'</a></span></td><td class="actions_box"><button id="deleteGame" realObjid="'+game_list[i]._id+'"><i class="fa-solid fa-trash"></i></button><button id="updateGame"><i class="fa-solid fa-file-pen"></i></button></td></tr><tr>');
+                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list[i].demo+'" target="_blank">'+game_list[i].demo+'</a></span></td><td class="actions_box"><button class="deleteGameT" realObjid="'+game_list[i]._id+'" type="button" data-bs-toggle="modal" data-bs-target="#deleteGame"><i class="fa-solid fa-trash"></i></button><button id="updateGame"><i class="fa-solid fa-file-pen"></i></button></td></tr><tr>');
               }
 
             }
@@ -439,6 +461,16 @@ button#updateGame i {
                 })
                 .show();
             });
+
+            $(".deleteGameT").on('click',function(){
+                console.log("Delete Games Triggered");
+                var gametodestroyid = $(this).val();
+                console.log("id: ", gametodestroyid);
+                setTimeout(function(){
+                    $('#gtodeleteid').val(gametodestroyid.toString());
+                }, 500);
+            });
+
         });
       </script>
     <% } %>
