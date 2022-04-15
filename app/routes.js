@@ -69,6 +69,7 @@ module.exports = (app, passport) => {
 
 	app.post('/deleteGame', isAdmin, async (req, res) => {
 		var id = req.body.gameid;
+		console.log(id);
 		if(id.length >= 2){
 			await deleteGamefromlist(id);
 			req.flash('successMessage', 'Game deleted')
