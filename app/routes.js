@@ -77,6 +77,16 @@ module.exports = (app, passport) => {
 		}
 	});
 
+	app.post('/deleteUser', isAdmin, async (req, res) => {
+		var id = req.body.userid;
+		console.log(req.body);
+		if(id.length >= 2){
+			await deleteUserfromlist(id);
+			req.flash('successMessage', 'User removed')
+			res.redirect('/backend');
+		}
+	});
+
 	/*app.post('/updategames', isAdmin, async (req, res) => {
 		let doneUpdating = 0;
 		await fs.readFile('./public/game_list.json', async function (err, data) {
@@ -104,7 +114,7 @@ module.exports = (app, passport) => {
 				let newGame = new Games();
 				newGame.name = name;
 				newGame.image = image;
-				newGame.provider = provider;
+				newGame.provider = provider.toLowerCase().replace(/\s/g, '');
 				newGame.demo = demo;
 				await newGame.save(function (err){
 					if (err){console.log(err);throw err;}
@@ -122,6 +132,17 @@ module.exports = (app, passport) => {
 				console.log(err)
 			}else{
 				console.log("Game Deleted: ", game);
+			}
+		});
+	}
+
+	//Remove Game from list db
+	async function deleteUserfromlist(id){
+		User.findByIdAndDelete(id, function (err, user){
+			if(err){
+				console.log(err)
+			}else{
+				console.log("User Deleted: ", user);
 			}
 		});
 	}

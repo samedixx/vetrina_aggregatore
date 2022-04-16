@@ -261,6 +261,28 @@ button#updateGame i {
             </div>
           </div>
 
+        <!-- Delete Game Modal -->
+        <div class="modal fade" id="deleteUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete User? <i class="fa-solid fa-user-plus"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="/deleteUser" method="post" class="row">
+                  <div class="col-12 gIdhidden">
+                      <input type="text" class="form-control" id="gtodeleteuserid" name="userid" value="" required>
+                  </div>
+                  <div class="col-12">
+                      <button type="submit" class="btn btn-danger mb-3 block w-100">Yes, delete user</button>
+                  </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Register Modal -->
         <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -492,7 +514,7 @@ button#updateGame i {
                 if(allUsers.length >= 1){
                 $('.allUsersLength').html(allUsers.length);
                 for(var i = 0;i < allUsers.length;i++){
-                    $('.userTable').append('<tr><td><span class="userName">'+allUsers[i].username+'</span></td><td><span class="userEmail">'+allUsers[i].email+'</span></td><td><span class="userType">'+allUsers[i].usertype+'</span></td><td class="usersPasswords"><span class="userPassword">'+allUsers[i].password+'</span></td><td><button type="button" class="btn btn-primary w-25"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" /></svg></button></td></tr>');
+                    $('.userTable').append('<tr><td><span class="userName">'+allUsers[i].username+'</span></td><td><span class="userEmail">'+allUsers[i].email+'</span></td><td><span class="userType">'+allUsers[i].usertype+'</span></td><td class="usersPasswords"><span class="userPassword">'+allUsers[i].password+'</span></td><td><button class="deleteUserT" realObjid="'+allUsers[i]._id+'" type="button" data-bs-toggle="modal" data-bs-target="#deleteUser"><i class="fa-solid fa-trash"></i></button></td></tr>');
                 }
                 }
             }
@@ -516,6 +538,18 @@ button#updateGame i {
                     return false;
                 })
                 .show();
+            });
+
+            $(".deleteUserT").on('click',function(){
+                console.log("Delete User Triggered");
+                var usertodestroyid = $(this).attr('realObjid').toString();
+                console.log("id: ", usertodestroyid);
+                setTimeout(function(){
+                  $('#gtodeleteuserid').html(usertodestroyid);
+                    $('#gtodeleteuserid').val(usertodestroyid);
+                    $('#gtodeleteuserid').attr('value',usertodestroyid)
+                    console.log($('#gtodeleteuserid').val());
+                }, 500);
             });
         });
       </script>
