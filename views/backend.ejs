@@ -549,7 +549,10 @@ button.updateGame i {
               var gametoeditid = $(this).attr('realObjid').toString();
               console.log("id: ", gametoeditid);
               var Egame_name = $(this).parent().parent().find('span.gameName')[0].innerHTML;
-              console.log("parent: ", Egame_name);
+              var Egame_image = $(this).parent().parent().find('.gameImages .gameCase')[0].attr('src');
+              var Egame_provider = $(this).parent().parent().find('span.gameProvider')[0].innerHTML;
+              var Egame_demo = $(this).parent().parent().find('span.gameDemo a')[0].innerHTML;
+              console.log("parent: ", Egame_image, " ", Egame_provider, " ", Egame_demo);
               setTimeout(function(){
                 $('#gameEditid').html(gametoeditid);
                   $('#gameEditid').val(gametoeditid);
