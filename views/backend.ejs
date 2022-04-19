@@ -300,23 +300,23 @@ button.updateGame i {
                       <input type="text" class="form-control" id="gameEditid" name="gameEditid" value=""  required>
                   </div>
                   <div class="col-12 custom_input">
-                      <label for="staticgame_name" class="visually-hidden">Game Name</label>
-                      <input type="text" class="form-control" id="staticgame_name" name="game_name" placeholder="Game Name"  required>
+                      <label for="editgame_name" class="visually-hidden">Game Name</label>
+                      <input type="text" class="form-control" id="editgame_name" name="game_name" placeholder="Game Name"  required>
                       <i class="fa-regular fa-game-console-handheld"></i>
                   </div>
                   <div class="col-12 custom_input">
-                      <label for="staticpv_code" class="visually-hidden">Image Url</label>
-                      <input type="text" class="form-control" id="staticimg_url" name="image" placeholder="Image link" required>
+                      <label for="editimg_url" class="visually-hidden">Image Url</label>
+                      <input type="text" class="form-control" id="editimg_url" name="image" placeholder="Image link" required>
                       <i class="fa-regular fa-image"></i>
                   </div>
                   <div class="col-12 custom_input">
-                      <label for="inputcode_to_open_game" class="visually-hidden">Provider</label>
-                      <input type="text" class="form-control" id="inputprovider" name="provider" placeholder="Provider" required>
+                      <label for="editgame_provider" class="visually-hidden">Provider</label>
+                      <input type="text" class="form-control" id="editgame_provider" name="provider" placeholder="Provider" required>
                       <i class="fa-regular fa-handshake"></i>
                   </div>
                   <div class="col-12 custom_input">
-                      <label for="inputgame_group" class="visually-hidden">Demo link</label>
-                      <input type="text" class="form-control" id="inputdemo_link" name="demo" placeholder="Demo link" required>
+                      <label for="editdemo_link" class="visually-hidden">Demo link</label>
+                      <input type="text" class="form-control" id="editdemo_link" name="demo" placeholder="Demo link" required>
                       <i class="fa-solid fa-desktop"></i>
                   </div>
                   <div class="col-12">
@@ -556,7 +556,24 @@ button.updateGame i {
               setTimeout(function(){
                 $('#gameEditid').html(gametoeditid);
                   $('#gameEditid').val(gametoeditid);
-                  $('#gameEditid').attr('value',gametoeditid)
+                  $('#gameEditid').attr('value',gametoeditid);
+
+                  $('#editgame_name').html(Egame_name.toString());
+                  $('#editgame_name').val(Egame_name.toString());
+                  $('#editgame_name').attr('value', Egame_name.toString());
+
+                  $('#editimg_url').html(Egame_image.toString());
+                  $('#editimg_url').val(Egame_image.toString());
+                  $('#editimg_url').attr('value', Egame_image.toString());
+
+                  $('#editgame_provider').html(Egame_provider.toString());
+                  $('#editgame_provider').val(Egame_provider.toString());
+                  $('#editgame_provider').attr('value', Egame_provider.toString());
+
+                  $('#editdemo_link').html(Egame_demo.toString());
+                  $('#editdemo_link').val(Egame_demo.toString());
+                  $('#editdemo_link').attr('value', Egame_demo.toString());
+
                   console.log($('#gameEditid').val());
               }, 500);
           });
