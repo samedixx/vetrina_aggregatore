@@ -69,7 +69,6 @@ module.exports = (app, passport) => {
 
 	app.post('/deleteGame', isAdmin, async (req, res) => {
 		var id = req.body.gameid;
-		console.log(req.body);
 		if(id.length >= 2){
 			await deleteGamefromlist(id);
 			req.flash('successMessage', 'Game deleted')
@@ -77,9 +76,22 @@ module.exports = (app, passport) => {
 		}
 	});
 
+	app.post('/editgame', isAdmin, async (req, res) => {
+		var id = req.body.gameEditid;
+		var name = req.body.game_name;
+		var image = req.body.image;
+		var provider = req.body.provider; 
+		var demo = req.body.demo;
+		console.log(req.body);
+		if(id.length >= 2){
+			//await updateSingleGamefromlist(id, name, image, provider, demo);
+			req.flash('successMessage', 'Game updated')
+			res.redirect('/backend');
+		}
+	});
+
 	app.post('/deleteUser', isAdmin, async (req, res) => {
 		var id = req.body.userid;
-		console.log(req.body);
 		if(id.length >= 2){
 			await deleteUserfromlist(id);
 			req.flash('successMessage', 'User removed')
@@ -136,7 +148,20 @@ module.exports = (app, passport) => {
 		});
 	}
 
-	//Remove Game from list db
+
+	//Update Game from list db
+	async function updateSingleGamefromlist(id, name, image, provider, demo){
+		Games.findByIdAndUpdate(id, { name: name, image:image, provider:provider, demo:demo }, function (err, game) {
+			if (err){
+				console.log(err)
+			}
+			else{
+				console.log("Game Updated: ", game);
+			}
+		});
+	}
+
+	//Remove User from list db
 	async function deleteUserfromlist(id){
 		User.findByIdAndDelete(id, function (err, user){
 			if(err){
