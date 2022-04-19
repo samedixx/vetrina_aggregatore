@@ -84,7 +84,7 @@ module.exports = (app, passport) => {
 		var demo = req.body.demo;
 		console.log(req.body);
 		if(id.length >= 2){
-			//await updateSingleGamefromlist(id, name, image, provider, demo);
+			await updateSingleGamefromlist(id, name, image, provider, demo);
 			req.flash('successMessage', 'Game updated')
 			res.redirect('/backend');
 		}
