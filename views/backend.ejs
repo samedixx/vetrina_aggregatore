@@ -194,7 +194,7 @@ button.deleteGameT i {
     color: red;
 }
 
-button#updateGame i {
+button.updateGame i {
     color: green;
 }
 
@@ -210,6 +210,9 @@ button#updateGame i {
     padding: 10px;
 }
 .gIdhidden{
+  display: none;
+}
+.gameEditid{
   display: none;
 }
 
@@ -276,6 +279,48 @@ button#updateGame i {
                   </div>
                   <div class="col-12">
                       <button type="submit" class="btn btn-danger mb-3 block w-100">Yes, delete user</button>
+                  </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modify Game Modal -->
+        <div class="modal fade" id="editGameModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Game <i class="fa-solid fa-slot-machine"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="/editgame" method="post" class="row">
+                  <div class="col-12 custom_input gameEditid">
+                      <input type="text" class="form-control" id="gameEditid" name="gameEditid" value=""  required>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="staticgame_name" class="visually-hidden">Game Name</label>
+                      <input type="text" class="form-control" id="staticgame_name" name="game_name" placeholder="Game Name"  required>
+                      <i class="fa-regular fa-game-console-handheld"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="staticpv_code" class="visually-hidden">Image Url</label>
+                      <input type="text" class="form-control" id="staticimg_url" name="image" placeholder="Image link" required>
+                      <i class="fa-regular fa-image"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="inputcode_to_open_game" class="visually-hidden">Provider</label>
+                      <input type="text" class="form-control" id="inputprovider" name="provider" placeholder="Provider" required>
+                      <i class="fa-regular fa-handshake"></i>
+                  </div>
+                  <div class="col-12 custom_input">
+                      <label for="inputgame_group" class="visually-hidden">Demo link</label>
+                      <input type="text" class="form-control" id="inputdemo_link" name="demo" placeholder="Demo link" required>
+                      <i class="fa-solid fa-desktop"></i>
+                  </div>
+                  <div class="col-12">
+                  <button type="submit" class="btn btn-primary mb-3 block w-100">Edit game</button>
                   </div>
               </form>
               </div>
@@ -457,48 +502,61 @@ button#updateGame i {
             if(game_list.length >= 1){
               $('.allGamesLength').html(game_list.length);
               for(var i = 0;i < game_list.length;i++){
-                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list[i].demo+'" target="_blank">'+game_list[i].demo+'</a></span></td><td class="actions_box"><button class="deleteGameT" realObjid="'+game_list[i]._id+'" type="button" data-bs-toggle="modal" data-bs-target="#deleteGame"><i class="fa-solid fa-trash"></i></button><button id="updateGame"><i class="fa-solid fa-file-pen"></i></button></td></tr><tr>');
+                  $('.gamesTable').append('<tr><td class="gameImages"><img class="gameCase" src="'+game_list[i].image+'" class="img-fluid img-thumbnail" alt="Game" /></td><td><span class="gameName">'+game_list[i].name+'</span> </td> <td> <span class="gameProvider">'+game_list[i].provider+'</span></td><td class="demoLink"><span class="gameDemo"><a href="'+game_list[i].demo+'" target="_blank">'+game_list[i].demo+'</a></span></td><td class="actions_box"><button class="deleteGameT" realObjid="'+game_list[i]._id+'" type="button" data-bs-toggle="modal" data-bs-target="#deleteGame"><i class="fa-solid fa-trash"></i></button><button class="updateGame" realObjid="'+game_list[i]._id+'" type="button" data-bs-toggle="modal" data-bs-target="#editGameModal"><i class="fa-solid fa-file-pen"></i></button></td></tr><tr>');
               }
 
             }
           }
 
           $(".searchGames").keyup(function () {
-                var data = this.value.toUpperCase().split(" ");
-                var jo = $(".gamesTable").find("tr");
-                if (this.value == "") {
-                    jo.show();
-                    return;
-                }
-                jo.hide();
+            var data = this.value.toUpperCase().split(" ");
+            var jo = $(".gamesTable").find("tr");
+            if (this.value == "") {
+                jo.show();
+                return;
+            }
+            jo.hide();
 
-                jo.filter(function (i, v) {
-                    var txt = '';
-                    $(v).find("td:nth-child(2)").children().each(function(n,e){
-                        txt += $(e).html().toLocaleUpperCase();
-                    });
-                    for(var d=0; d<data.length; d++){
-                        if (txt.search(data[d])>=0) {
-                            return true;
-                        }
-                    }
-                    return false;
-                })
-                .show();
-            });
+            jo.filter(function (i, v) {
+              var txt = '';
+              $(v).find("td:nth-child(2)").children().each(function(n,e){
+                  txt += $(e).html().toLocaleUpperCase();
+              });
+              for(var d=0; d<data.length; d++){
+                  if (txt.search(data[d])>=0) {
+                      return true;
+                  }
+              }
+              return false;
+            })
+            .show();
+          });
 
-            $(".deleteGameT").on('click',function(){
-                console.log("Delete Games Triggered");
-                var gametodestroyid = $(this).attr('realObjid').toString();
-                console.log("id: ", gametodestroyid);
-                setTimeout(function(){
-                  $('#gtodeleteid').html(gametodestroyid);
-                    $('#gtodeleteid').val(gametodestroyid);
-                    $('#gtodeleteid').attr('value',gametodestroyid)
-                    console.log($('#gtodeleteid').val());
-                }, 500);
-            });
-
+          $(".deleteGameT").on('click',function(){
+              console.log("Delete Games Triggered");
+              var gametodestroyid = $(this).attr('realObjid').toString();
+              console.log("id: ", gametodestroyid);
+              setTimeout(function(){
+                $('#gtodeleteid').html(gametodestroyid);
+                  $('#gtodeleteid').val(gametodestroyid);
+                  $('#gtodeleteid').attr('value',gametodestroyid)
+                  console.log($('#gtodeleteid').val());
+              }, 500);
+          });
+          
+          $(".updateGame").on('click',function(){
+              console.log("Update Games Triggered");
+              var gametoeditid = $(this).attr('realObjid').toString();
+              console.log("id: ", gametoeditid);
+              var Egame_name = $(this).parent().parent();
+              console.log("parent: ", Egame_name);
+              setTimeout(function(){
+                $('#gameEditid').html(gametoeditid);
+                  $('#gameEditid').val(gametoeditid);
+                  $('#gameEditid').attr('value',gametoeditid)
+                  console.log($('#gameEditid').val());
+              }, 500);
+          });
         });
       </script>
     <% } %>
