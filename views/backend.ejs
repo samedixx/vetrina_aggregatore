@@ -548,7 +548,7 @@ button.updateGame i {
               console.log("Update Games Triggered");
               var gametoeditid = $(this).attr('realObjid').toString();
               console.log("id: ", gametoeditid);
-              var Egame_name = $(this).parent().parent().find('span.gameName')[0].innerHTML();
+              var Egame_name = $(this).parent().parent().find('span.gameName')[0].innerHTML;
               console.log("parent: ", Egame_name);
               setTimeout(function(){
                 $('#gameEditid').html(gametoeditid);
